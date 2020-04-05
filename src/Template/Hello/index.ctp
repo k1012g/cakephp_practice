@@ -22,7 +22,25 @@
 		<h1><?= $title ?></h1>
 	</header>
 	<div class="row">
-		<p><?= $message ?></p>
+		<pre><?php print_r($data); ?></pre>
+	</div>
+	<div class="row">
+		<table>
+			<?= $this->Form->create(null, ['type' => 'post', 'url' => ['controller' => 'Hello', 'action' => 'index']]) ?>
+				<tr>
+					<th>Select</th>
+					<td>
+						<?= $this->Form->select('Form1.select', ['one' => 'first', 'two' => 'second', 'three' => 'third']) ?>
+					</td>
+				</tr>
+				<tr>
+					<th></th>
+					<td>
+						<?= $this->Form->submit('送信') ?>
+					</td>
+				</tr>
+			<?= $this->Form->end() ?>
+		</table>
 	</div>
 </body>
 </html>
