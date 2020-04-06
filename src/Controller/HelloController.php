@@ -5,17 +5,13 @@
 
 	class HelloController extends AppController {
 
+		public function initialize() {
+			$this->viewBuilder()->setLayout('hello');
+		}
+
 		public function index() {
-
-			$this->viewBuilder()->autoLayout(false);
-			$this->set('title', 'Hello!');
-
-			if ($this->request->isPost()) {
-				$this->set('data', $this->request->data['Form1']);
-			}else {
-				$this->set('data', []);
-			}
-
+			$this->set('header', ['subtitle' => 'from Controller with Love']);
+			$this->set('footer', ['copyright' => '名無しの権兵衛']);
 		}
 
 		public function form() {

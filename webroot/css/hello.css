@@ -1,0 +1,40 @@
+html {
+	margin: 0px;
+}
+
+body {
+	margin: 0px;
+}
+
+h1 {
+	color: #bbf;
+	font-size: 48pt;
+	margin: 0px 20px;
+}
+
+p {
+	color: #669;
+	font-size: 14pt;
+}
+
+.head {
+	background-color: #f0f0ff;
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+}
+
+.foot {
+	background-color: #f0f0ff;
+	bottom: 0px;
+	color: #99f;
+	height: 50px;
+	left: 0px;
+	position: fixed;
+	text-align: right;
+	width: 100%;
+}
+
+.content {
+	margin: 5px 20px;
+}
