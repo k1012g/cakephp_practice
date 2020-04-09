@@ -6,7 +6,12 @@
 	class PeopleController extends AppController {
 
 		public function index() {
-			$data = $this->People->find('all');
+			if ($this->request->is('post')) {
+				$find = $this->request->data['People']['find'];
+				$data = $this->People->find('me', ['me' => $find]);
+			}else {
+				$data = $this->People->find('byAge');
+			}
 			$this->set('data', $data);
 		}
 
