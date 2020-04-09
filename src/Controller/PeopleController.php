@@ -16,7 +16,17 @@
 		}
 
 		public function add() {
+			$msg = 'please type your personal data...';
 			$entity = $this->People->newEntity();
+			if ($this->request->is('post')) {
+				$data = $this->request->data['People'];
+				$entity = $this->People->newEntity($data);
+				if ($this->People->save($entity)) {
+					return $this->redirect(['action' => 'index']);
+				}
+				$msg = 'Error was occured...';
+			}
+			$this->set('msg', $msg);
 			$this->set('entity', $entity);
 		}
 
