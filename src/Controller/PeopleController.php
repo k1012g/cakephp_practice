@@ -10,7 +10,8 @@
 				$find = $this->request->data['People']['find'];
 				$data = $this->People->find('me', ['me' => $find]);
 			}else {
-				$data = $this->People->find('byAge');
+				$data = $this->People->find('byAge')
+					->contain(['Messages']);
 			}
 			$this->set('data', $data);
 		}

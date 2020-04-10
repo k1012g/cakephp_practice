@@ -2,7 +2,7 @@
 <html>
 <head>
 	<!-- <title><?= $title ?></title> -->
-	<meta charset="utf-8">
+	<?= $this->Html->charset() ?>
 	<!-- <style>
 		h1 {
 			font-size: 48pt;
