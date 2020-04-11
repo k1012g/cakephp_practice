@@ -20,10 +20,11 @@
 	<table>
 		<thead>
 			<tr>
-				<th>id</th>
-				<th>name</th>
+				<th><?= $this->Paginator->sort('id') ?></th>
+				<th><?= $this->Paginator->sort('name') ?></th>
+				<th><?= $this->Paginator->sort('mail') ?></th>
+				<th><?= $this->Paginator->sort('age') ?></th>
 				<th>messages</th>
-				<th></th>
 			</tr>
 		</thead>
 		<?php foreach($data->toArray() as $obj): ?>
@@ -34,19 +35,29 @@
 						<?= h($obj->name) ?>
 					</a>
 				</td>
+				<td><?= h($obj->mail) ?></td>
+				<td><?= h($obj->age) ?></td>
 				<td>
 					<?php foreach($obj->messages as $item): ?>
 						"<?= h($item->message) ?>"
 						<br>
 					<?php endforeach; ?>
 				</td>
-				<td>
+				<!-- <td>
 					<a href="<?= $this->Url->build(['controller' => 'People', 'action' => 'delete']) ?>?id=<?= $obj->id ?>">
 						delete
 					</a>
-				</td>
+				</td> -->
 			</tr>
 		<?php endforeach; ?>
 	</table>
+	<div class="paginator">
+		<ul class="pagination">
+			<?= $this->Paginator->first(' |<< '.'最初へ') ?>
+			<?= $this->Paginator->prev(' << '.'前へ') ?>
+			<?= $this->Paginator->next('次へ'.' >> ') ?>
+			<?= $this->Paginator->last('最後へ'.' >>| ') ?>
+		</ul>
+	</div>
 </body>
 </html>

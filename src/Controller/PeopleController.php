@@ -5,14 +5,27 @@
 
 	class PeopleController extends AppController {
 
+		public $paginate = [
+			'limit' => 5,
+			'sort' => 'id',
+			'direction' => 'asc',
+			'contain' => ['Messages']
+		];
+
+		public function initialize() {
+			parent::initialize();
+			$this->loadComponent('Paginator');
+		}
+
 		public function index() {
-			if ($this->request->is('post')) {
-				$find = $this->request->data['People']['find'];
-				$data = $this->People->find('me', ['me' => $find]);
-			}else {
-				$data = $this->People->find('byAge')
-					->contain(['Messages']);
-			}
+			// if ($this->request->is('post')) {
+			// 	$find = $this->request->data['People']['find'];
+			// 	$data = $this->People->find('me', ['me' => $find]);
+			// }else {
+			// 	$data = $this->People->find('byAge')
+			// 		->contain(['Messages']);
+			// }
+			$data = $this->paginate($this->People);
 			$this->set('data', $data);
 		}
 
