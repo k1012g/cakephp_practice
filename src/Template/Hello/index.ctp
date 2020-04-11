@@ -18,7 +18,8 @@
 	</style> -->
 </head>
 <body>
-	<p>This is sample content.</p>
-	<p>これは、Helloレイアウトを利用したサンプルです。</p>
+	<ul>
+		<?= $this->Html->nestedList(['first line', 'second line', 'third line' => ['one', 'two', 'three']]) ?>
+	</ul>
 </body>
 </html>
