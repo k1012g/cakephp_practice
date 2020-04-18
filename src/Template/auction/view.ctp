@@ -14,7 +14,7 @@
 	</tr>
 	<tr>
 		<th scope="row">終了時間</th>
-		<td><?= $this->h($biditem->endtime) ?></td>
+		<td><?= h($biditem->endtime) ?></td>
 	</tr>
 	<tr>
 		<th scope="row">投稿時間</th>

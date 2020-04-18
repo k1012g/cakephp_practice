@@ -24,7 +24,7 @@
 				<td><?= h($biditem->finished ? 'Finished' : '') ?></td>
 				<td><?= h($biditem->endtime) ?></td>
 				<td class="actions">
-					<? $this->Html->link(__('View'), ['action' => 'view', $biditem->id]) ?>
+					<?= $this->Html->link(__('View'), ['action' => 'view', $biditem->id]) ?>
 				</td>
 			</tr>
 		<?php endforeach; ?>
